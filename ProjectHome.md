@@ -1,0 +1,4 @@
+This is a Linux kernel driver for Android on Qualcomm MSM8255 platform. bq275x0\_battery.c is the driver to get battery information from gauge. It handles the interrupt when the battery capactity is lower than the percentage set in the firmware, and then sends events to notify the user space service to response the status. It can detect the firmware version in the file system and compare it with current firmware in the gauge. If the two firmware versions are different, the driver will send an event to notify the user space service, and an application notification will show to notify user to upgrade the firmware data. You can get the application source codes from
+> https://code.google.com/p/bq20705-fw-upgrade-wizard/
+
+If users choose to upgrade the firmware, the driver will change the gauge to ROM mode and bq275x0\_RomMode.c will start upgrading procedures.
